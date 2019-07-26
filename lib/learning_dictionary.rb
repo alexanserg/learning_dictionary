@@ -21,7 +21,7 @@ class Word
     @@words.push(Word.new(word, definition))
   end
   def ==(other_word)
-    (@word == other_word.word)
+    @word == other_word.word
   end
   def self.find(word)
     found_word = nil

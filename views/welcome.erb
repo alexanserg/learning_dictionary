@@ -4,7 +4,11 @@
 <% if @words.any? %>
 <ul>
   <% @words.each do |w| %>
-  <li> <a href="/definitions/:<%= w.word %>"><%= w.word %></a> </li>
+  <li> <a href="definitions/:<%= w.word %>"><%= w.word %></a> </li>
+  <form action="/delete/<%= w.word %>" method="post">
+     <input type="hidden" name="_method" value="DELETE">
+     <input type="submit" value="Delete Word?">
+   </form>
   <% end %>
   <br>
 

@@ -30,3 +30,9 @@ post ('/add_word') do
   Word.add(params[:word], params[:definition])
   redirect to('/welcome')
 end
+delete('/delete/:word') do
+  @example = Word.find(params[:word].to_s.gsub(':',''))
+  @example.delete(@example)
+  binding.pry
+  redirect to('/welcome')
+end
