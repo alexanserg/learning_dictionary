@@ -27,7 +27,7 @@ class Word
     found_word = nil
     @@words.each do |w|
       if w.word == word
-        found_word = word
+        found_word = w
         break
       end
     end
