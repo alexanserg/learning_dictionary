@@ -1,5 +1,6 @@
 require 'pry'
 
+
 class Word
   @@words = []
   attr_accessor(:word, :definition)
