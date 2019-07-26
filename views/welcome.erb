@@ -1,0 +1,13 @@
+<h1>My words!</h1>
+
+
+<% if @words.any? %>
+<ul>
+  <% @words.each do |w| %>
+  <li> <a href="/definitions/:<%= w.word %>"><%= w.word %></a> </li>
+  <% end %>
+  <br>
+
+
+  <p><a href="/add_word">Add a new word</a><br></p>
+  <% end %>
