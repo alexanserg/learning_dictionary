@@ -1,4 +1,6 @@
-source 'https://rubygems.org'
-gem 'pivotal_git_scripts'
-gem 'rspec'
-gem 'pry'
+source('https://rubygems.org')
+
+gem('sinatra')
+gem('rspec')
+gem('pry')
+gem('sinatra-contrib')
