@@ -23,3 +23,10 @@ get ('/definitions/:word') do
   @def = Word.find_def(params[:word].to_s.gsub(':',''))
   erb(:word)
 end
+get ('/add_word') do
+  erb(:add_word)
+end
+post ('/add_word') do
+  Word.add(params[:word], params[:definition])
+  redirect to('/welcome')
+end
