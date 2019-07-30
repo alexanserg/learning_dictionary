@@ -1,11 +1,13 @@
-<h2>My word: <%= @word %></h2>
+<h2>My word: <%= @word.word %></h2>
 
 <h3>Definitions:</h3>
 <ul>
   <li><%= @def %>  </li>
+  <li><%= @def2 %>  </li>
+  <li><%= @def3 %>  </li>
 </ul>
 
 
 
-
+<a href="/add_definition/:<%= @word.word %>">Add or update Definitions</a><br>
 <a href="/welcome">Return to home page</a>

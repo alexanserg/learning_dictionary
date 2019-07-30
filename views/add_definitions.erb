@@ -1,0 +1,20 @@
+<h3>Update Definitions:</h3>
+<form action="/add_definition/:<%= @word.word %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <h2>My word: <%= @word.word %></h2>
+
+    <label for="definition">First definition</label>
+    <input name="definition" class="form-control" type="text" value="<%=  @def %>">
+    <label for="definition2">Second definition(optional)</label>
+    <input name="definition2" class="form-control" type="text" value="<%=  @def2 %>">
+    <label for="definition3">Third Definition(optional)</label>
+    <input name="definition3" class="form-control" type="text" value="<%=  @def3 %>">
+  </div>
+  <button type="submit">Update!</button>
+</form>
+
+
+
+
+<a href="/welcome">Return to home page</a>

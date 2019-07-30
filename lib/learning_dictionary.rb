@@ -3,10 +3,12 @@ require 'pry'
 
 class Word
   @@words = []
-  attr_accessor(:word, :definition)
-  def initialize(word, definition=nil)
+  attr_accessor(:word, :definition, :definition2, :definition3)
+  def initialize(word, definition=nil, definition2=nil, definition3=nil)
     @word = word
     @definition = definition
+    @definition2 = definition2
+    @definition3 = definition3
   end
   def save
     @@words.push(self)
@@ -17,8 +19,8 @@ class Word
   def self.clear
     @@words = []
   end
-  def self.add(word, definition=nil)
-    @@words.push(Word.new(word, definition))
+  def self.add(word, definition=nil, definition2=nil, definition3=nil)
+    @@words.push(Word.new(word, definition, definition2, definition3))
   end
   def ==(other_word)
     @word == other_word.word
@@ -43,9 +45,30 @@ class Word
     end
     found_def
   end
-  def update(word, definition=nil)
-    @word = word
+  def self.find_def2(word)
+    found_def = nil
+    @@words.each do |w|
+      if w.word == word
+        found_def = w.definition2
+        break
+      end
+    end
+    found_def
+  end
+  def self.find_def3(word)
+    found_def = nil
+    @@words.each do |w|
+      if w.word == word
+        found_def = w.definition3
+        break
+      end
+    end
+    found_def
+  end
+  def self.update(word, definition=nil, definition2=nil, definition3=nil)
     @definition = definition
+    @definition2 = definition2
+    @definition3 = definition3
   end
   def delete
     @@words.delete(self)

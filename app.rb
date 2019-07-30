@@ -21,17 +21,32 @@ end
 get ('/definitions/:word') do
   @word = Word.find(params[:word].to_s.gsub(':',''))
   @def = Word.find_def(params[:word].to_s.gsub(':',''))
+  @def2 = Word.find_def2(params[:word].to_s.gsub(':',''))
+  @def3 = Word.find_def3(params[:word].to_s.gsub(':',''))
   erb(:word)
 end
 get ('/add_word') do
   erb(:add_word)
 end
 post ('/add_word') do
-  Word.add(params[:word], params[:definition])
+  Word.add(params[:word], params[:definition], params[:definition2], params[:definition3])
   redirect to('/welcome')
 end
 delete('/delete/:word') do
   @example = Word.find(params[:word].to_s.gsub(':',''))
   @example.delete()
+  redirect to('/welcome')
+end
+get ('/add_definition/:word') do
+  @word = Word.find(params[:word].to_s.gsub(':',''))
+  @def = Word.find_def(params[:word].to_s.gsub(':',''))
+  @def2 = Word.find_def2(params[:word].to_s.gsub(':',''))
+  @def3 = Word.find_def3(params[:word].to_s.gsub(':',''))
+  erb(:add_definitions)
+end
+patch ('/add_definition/:word') do
+  @word = Word.find(params[:word].to_s.gsub(':',''))
+  @word.delete()
+  Word.add(params[:word].to_s.gsub(':',''), params[:definition], params[:definition2], params[:definition3])
   redirect to('/welcome')
 end
