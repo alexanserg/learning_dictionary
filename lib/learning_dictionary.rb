@@ -65,7 +65,7 @@ class Word
     end
     found_def
   end
-  def self.update(word, definition=nil, definition2=nil, definition3=nil)
+  def self.update(definition=nil, definition2=nil, definition3=nil)
     @definition = definition
     @definition2 = definition2
     @definition3 = definition3
